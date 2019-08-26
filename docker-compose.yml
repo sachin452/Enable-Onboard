@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  web:
+    #build: .
+    #command: python env/profiles_project/manage.py runserver 0.0.0.0:4000
+    #command: ["./wait-for-it/wait-for-it.sh","db:3306", "--", "python", "env/profiles_project/manage.py", "runserver", "0.0.0.0:4000"]  
+    image: enable_backend_web:latest
+    command: ["./start.sh" ] 
+    #volumes:
+        #- .:/code
+    ports:
+        - "4000:4000"
+    restart: on-failure
+    network_mode: "host"
